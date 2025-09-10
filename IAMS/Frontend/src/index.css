@@ -1,0 +1,66 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Modal styles - REVISED */
+.Modal {
+  /* Fallback, though your inner div has shadow-2xl */
+  outline: none;
+  z-index: 1001; /* Ensure it's on top of the overlay */
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* Darker overlay */
+  z-index: 1000; /* Ensure it's on top */
+  display: flex; /* Ensure modal is centered vertically/horizontally */
+  align-items: center;
+  justify-content: center;
+  /* Add padding to the overlay to prevent modal from touching screen edges */
+  padding: 1rem; /* Adjust as needed */
+}
+
+/* Custom Tailwind-like classes for input/select for consistency */
+.form-input {
+  @apply shadow-sm appearance-none border border-gray-300 rounded-md w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+}
+
+.form-select {
+  @apply shadow-sm appearance-none border border-gray-300 rounded-md w-full py-2.5 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+}
+
+/* Optional: Simple fade-in animation for the modal content */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(
+      -20px
+    ); /* Remove translateX(-50%) if .Modal no longer uses absolute positioning */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Remove translateX(-50%) */
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.3s ease-out forwards;
+}
